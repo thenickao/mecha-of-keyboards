@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<body>
+    <nav>
+        <a href="/keyboards">Back to All Keyboards</a>
+    </nav>
+    <h1><%=keyboard.name %></h1>
+    Keyboard Size: <%=keyboard.keyboardSize %><br>
+    Other Size: <%=keyboard.otherSize %><br>
+    Layout Name: <%=keyboard.layoutName %><br>
+    Connectivity: <%=keyboard.connectivity %><br>
+    Switches: <%=keyboard.switches %><br>
+    Switch Facing: <%=keyboard.switchFacing %><br>
+    <!-- Hot-Swappable: <%=keyboard.hotswap %><br>
+    <% if(keyboard.hotswap === true){ %> checked <% } %>  -->
+    Stabilizer Type: <%=keyboard.stabilizerType %><br>
+    <!-- Knob: <%=keyboard.knob %><br>
+    <% if(keyboard.knob === true){ %> checked <% } %>  -->
+    Body Materials: <%=keyboard.bodyMaterials %><br>
+    Plate Options: <%=keyboard.plateOptions %><br>
+    <!-- Backlit/RGB: <%=keyboard.rgb %><br>
+    <% if(keyboard.rgb === true){ %> checked <% } %>  -->
+    Average Price: <%=keyboard.averagePrice %><br>
+    <img src= <%= keyboard.img %> alt= <% keyboard.name %> ><br><br>
+    <a href="/keyboards/<%=keyboard._id %>/edit">Edit</a> <br><br>
+    <form action="/keyboards/<%= keyboard.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE" />
+    </form>
+</body>
+</html>
