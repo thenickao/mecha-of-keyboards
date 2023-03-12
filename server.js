@@ -19,6 +19,7 @@ db.on("connected", () => console.log("Mongo is Connected"))
 db.on("disconnected", () => console.log("Mongo is Disconnected"))
 
 // MIDDLEWARE
+app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))

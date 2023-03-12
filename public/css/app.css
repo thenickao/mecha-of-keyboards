@@ -1,12 +1,38 @@
-/* .keyboardIMG {
-    max-width: 50px;
+img {
+    max-width: 400px;
 }
 
-img {
-    max-width: 50px;
-} */
-
-* {
+body {
     background-color: black;
     color: white;
+}
+
+a {
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+a:visited {
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+input {
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
 }
