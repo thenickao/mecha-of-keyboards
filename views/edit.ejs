@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
     <title>Edit</title>
 </head>
 <body>
@@ -14,30 +13,31 @@
     <form action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=keyboard.name%>"/>*<br>
             
-        Keyboard Size: <select name="keyboardSize" onchange="toggleCustomSize()" value="<%=keyboard.keyboardSize%>">
+        Keyboard Size: <select name="keyboardSize" onchange="toggleCustomSize()">
             <option value="">Select a size</option>
-            <option value="60%">60%</option>
-            <option value="65%">65%</option>
-            <option value="75%">75%</option>
-            <option value="75%">80% | TKL | Tenkeyless</option>
-            <option value="full">100% | Full Size</option>
-            <option value="custom">Other (specify below)</option>
+            <option value="60%" <% if (keyboard.keyboardSize === "60%") { %>selected<% } %>>60%</option>
+            <option value="65%" <% if (keyboard.keyboardSize === "65%") { %>selected<% } %>>65%</option>
+            <option value="75%" <% if (keyboard.keyboardSize === "75%") { %>selected<% } %>>75%</option>
+            <option value="80% | TKL | Tenkeyless" <% if (keyboard.keyboardSize === "80%") { %>selected<% } %>>80% | TKL | Tenkeyless</option>
+            <option value="00% | Full Size" <% if (keyboard.keyboardSize === "full") { %>selected<% } %>>100% | Full Size</option>
+            <option value="Other (specify below)" <% if (keyboard.keyboardSize === "custom") { %>selected<% } %>>Other (specify below)</option>
         </select>*<br>
+
         <div id="customSizeField" style="display:none;">
             Other Size: <input type="text" name="otherSize" value="<%=keyboard.otherSize%>"/>
         </div>
 
         Layout Name: <input type="text" name="layoutName" placeholder="Ex: Standard/Alice" value="<%=keyboard.layoutName%>"/><br>
         
-        Connectivity: <select name="connectivity" value="<%=keyboard.connectivity%>">
+        Connectivity: <select name="connectivity">
             <option value="">Select an option</option>
-            <option value="wiredC">Wired(Detachable) Type-C USB</option>
-            <option value="wiredM">Wired(Detachable) Mini USB</option>
-            <option value="wired">Wired(Non-Detachable) Type-A USB</option>
-            <option value="wirelessB">Wireless (Bluetooth)</option>
-            <option value="wirelessD">Wireless (Dongle)</option>
-
+            <option value="Wired(Detachable) Type-C USB" <% if (keyboard.connectivity === "Wired(Detachable) Type-C USB") { %>selected<% } %>>Wired(Detachable) Type-C USB</option>
+            <option value="Wired(Detachable) Mini USB" <% if (keyboard.connectivity === "Wired(Detachable) Mini USB") { %>selected<% } %>>Wired(Detachable) Mini USB</option>
+            <option value="Wired(Non-Detachable) Type-A USB" <% if (keyboard.connectivity === "Wired(Non-Detachable) Type-A USB") { %>selected<% } %>>Wired(Non-Detachable) Type-A USB</option>
+            <option value="Wireless (Bluetooth)" <% if (keyboard.connectivity === "Wireless (Bluetooth)") { %>selected<% } %>>Wireless (Bluetooth)</option>
+            <option value="Wireless (Dongle)" <% if (keyboard.connectivity === "Wireless (Dongle)") { %>selected<% } %>>Wireless (Dongle)</option>
         </select>*<br>
+
         
         Switches: <input type="text" name="switches" value="<%=keyboard.switches%>"/><br>
         
@@ -69,11 +69,10 @@
         <!-- Backlit/RGB: <input type="checkbox" name="rgb" value="<%=keyboard.rgb%>" onclick="getCheckboxValue(this)"/>*<br> -->
         Average Price: $<input type="text" name="averagePrice" placeholder="USD" value="<%=keyboard.averagePrice%>"/>*<br>
         Image URL: <input type="text" name="img" value="<%=keyboard.img%>"/><br>
-        <input type="submit" name="" value="Send this Keyboard to the Mecha"/>
+    <input type="submit" value="Submit Changes" />
     </form>
     *required fields
     
-    <input type="submit" value="Submit Changes" />
 
 <script>
     function toggleCustomSize() {

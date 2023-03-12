@@ -6,6 +6,7 @@ require("dotenv").config()
 const Keyboard = require("./models/keyboard.js")
 // const keyboardsController = require("./controllers/keyboards.js")
 const mongoose = require("mongoose")
+mongoose.set('strictQuery', false)
 
 // DATABASE CONNECTION
 mongoose.connect(process.env.DATABASE_URL, {
