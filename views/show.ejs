@@ -10,7 +10,7 @@
 
     <nav>
         <a class="link" href="/keyboards">Back to All Keyboards</a>
-    </nav><br>
+    </nav><br><br>
 
     <div class="grid-container">
     Keyboard Size: <%=keyboard.keyboardSize %><br>
@@ -34,7 +34,7 @@
     <img src= <%= keyboard.img %> alt= <% keyboard.name %> ><br>
     </div>
 
-    <a class="link" href="/keyboards/<%=keyboard._id %>/edit">Edit</a>
+    <a class="link" href="/keyboards/<%=keyboard._id %>/edit">Edit</a><br>
     <form action="/keyboards/<%= keyboard.id %>?_method=DELETE" method="POST">
         <input class="delete" type="submit" value="DELETE" />
     </form>

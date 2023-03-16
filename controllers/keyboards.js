@@ -15,6 +15,42 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/name", (req, res) => {
+    Keyboard.find({}, (error, allKeyboards) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render("nameSort.ejs", {
+                keyboards: allKeyboards,
+            });
+        }
+    });
+});
+
+router.get("/size", (req, res) => {
+    Keyboard.find({}, (error, allKeyboards) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render("sizeSort.ejs", {
+                keyboards: allKeyboards,
+            });
+        }
+    });
+});
+
+router.get("/price", (req, res) => {
+    Keyboard.find({}, (error, allKeyboards) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render("priceSort.ejs", {
+                keyboards: allKeyboards,
+            });
+        }
+    });
+});
+
 // router.get('/seed', (req, res) =>{
 // 	Keyboard.create([
 // 		{

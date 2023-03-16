@@ -29,7 +29,7 @@ img {
     max-width: 400px;
 }
 
-a {
+a.keyboard {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
     padding: 5px 10px;
@@ -40,8 +40,8 @@ a {
   }
 
 a.link {
-    color: rgb(50, 50, 50);
-    background-color: rgb(200, 200, 200);
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 0, 0);
     padding: 5px 10px;
     margin: 2px auto;
     border-radius: 5px;
@@ -50,7 +50,7 @@ a.link {
     width: fit-content;
   }
 
-a:visited {
+/* a:visited {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
     padding: 5px 5px;
@@ -58,7 +58,7 @@ a:visited {
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-}
+} */
 
 input {
     color: rgb(50, 50, 50);
@@ -84,4 +84,35 @@ select {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.submit {
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 100, 0);
+    padding: 5px 5px;
+    margin: 2px auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.index {
+    margin: 0% 25% 25% 25%;
+}
+
+.new {
+    margin: 0% 25% 25% 25%;
+}
+
+.sort {
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    margin: 2px auto;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+    width: fit-content;
 }

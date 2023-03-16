@@ -11,10 +11,9 @@
 
     <div class="index">
     <a class="sort" href="/keyboards/name">Sort by Name</a>
-    <a class="sort" href="/keyboards/size">Sort by Size</a>
     <a class="sort" href="/keyboards/price">Sort by Price</a>
     <ul id="keyboard-list">
-        <% keyboards.forEach(keyboard=> { %>
+        <% keyboards.sort((a, b) => a.keyboardSize.localeCompare(b.keyboardSize)).forEach(keyboard => { %>
             <a class="keyboard" href="/keyboards/<%=keyboard._id; %>">
                 <% if (keyboard.keyboardSize === 'custom') {%>
                     <%=keyboard.name %> | Size: <%=keyboard.otherSize %> | Price: $<%=keyboard.price %>

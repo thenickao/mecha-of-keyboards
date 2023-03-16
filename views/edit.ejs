@@ -6,11 +6,13 @@
     <title>Edit</title>
 </head>
 <body>
-    <nav>
-        <a href="/keyboards/<%=keyboard._id%>">Back to <%=keyboard.name%></a>
-    </nav>
     <h1>Edit Keyboard</h1>
-    <form action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
+
+    <nav>
+        <a class="link" href="/keyboards/<%=keyboard._id%>">Back to <%=keyboard.name%></a>
+    </nav><br>
+
+    <form class="new" action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=keyboard.name%>"/>*<br>
             
         Keyboard Size: <select name="keyboardSize" value="<%=keyboard.keyboardSize%>" onchange="toggleCustomSize()">
@@ -76,9 +78,11 @@
         <!-- Backlit/RGB: <input type="checkbox" name="rgb" value="<%=keyboard.rgb%>" onclick="getCheckboxValue(this)"/>*<br> -->
         Price: $<input type="text" name="price" placeholder="USD" value="<%=keyboard.averagePrice%>"/>*<br>
         Image URL: <input type="text" name="img" value="<%=keyboard.img%>"/><br>
-    <input type="submit" value="Submit Changes" />
+        * required fields<br><br>
+    <input class="submit" type="submit" value="Submit Changes" /><br>
+    
     </form>
-    *required fields
+    
     
 
     <script>

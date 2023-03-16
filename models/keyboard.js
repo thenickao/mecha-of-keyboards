@@ -16,7 +16,7 @@ const keyboardSchema = new mongoose.Schema({
     bodyMaterials: {type: String, required: true},
     plateOptions: {type: String, required: true},
     // rgb: {type: Boolean, required: true},
-    price: {type: String, required: true},
+    price: {type: Number, required: true},
     img: {type: String, required: false},
 });
 

@@ -10,8 +10,8 @@
     <h1>New Keyboard Page</h1>
     <nav>
       <a class="link" href="/keyboards">Back to All Keyboards</a>
-  </nav>
-        <form action="/keyboards" method="POST">
+    </nav><br>
+        <form class="new" action="/keyboards" method="POST">
             Name: <input type="text" name="name" />*<br>
             
             Keyboard Size: <select name="keyboardSize" onchange="toggleCustomSize()">
@@ -78,9 +78,10 @@
             <!-- Backlit/RGB: <input type="checkbox" name="rgb"/>*<br> -->
             Price: $<input type="text" name="price" placeholder="USD" />*<br>
             Image URL: <input type="text" name="img" /><br>
-            <input type="submit" name="" value="Send this Keyboard to the Mecha"/>
+            * required fields<br><br>
+            <input class="submit" type="submit" name="" value="Send this Keyboard to the Mecha"/>
         </form>
-        *required fields
+        
         
         
         <script>
