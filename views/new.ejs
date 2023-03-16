@@ -6,10 +6,11 @@
     <title>New</title>
 </head>
 <body>
-    <nav>
-        <a href="/keyboards">Back to All Keyboards</a>
-    </nav>
+    
     <h1>New Keyboard Page</h1>
+    <nav>
+      <a class="link" href="/keyboards">Back to All Keyboards</a>
+  </nav>
         <form action="/keyboards" method="POST">
             Name: <input type="text" name="name" />*<br>
             
@@ -28,16 +29,25 @@
     
             Layout Name: <input type="text" name="layoutName" placeholder="Ex: Standard/Alice" /><br>
             
-            Connectivity: <select name="connectivity">
+            Connection: <select name="connection">
                 <option value="">Select an option</option>
-                <option value="Wired(Detachable) Type-C USB">Wired(Detachable) Type-C USB</option>
-                <option value="Wired(Detachable) Mini USB">Wired(Detachable) Mini USB</option>
-                <option value="Wired(Non-Detachable) Type-A USB">Wired(Non-Detachable) Type-A USB</option>
-                <option value="Wireless (Bluetooth)">Wireless (Bluetooth)</option>
-                <option value="Wireless (Dongle)">Wireless (Dongle)</option>
-
+                <option value="Wired(Detachable)">Wired(Detachable)</option>
+                <option value="Wired(Non-Detachable)">Wired(Non-Detachable)</option>
+                <option value="Wireless(Bluetooth)">Wireless</option>
             </select>*<br>
-            
+            <div id="connection" style="display:none;">
+                Connection Type(Output): <select name="detach">
+                    <option value="USB C"></option>
+                    <option value="USB A"></option>
+                    <option value="Mini USB"></option>
+
+            </div>
+            <div id="connection" style="display:none;">
+                Connection Type: <select name="nonDetach">
+                    <option value="USB A"></option>
+                    <option value="USB C"></option>
+            </div>
+          
             Switches: <input type="text" name="switches" /><br>
             
             Switch Facing: <select name="switchFacing">
@@ -66,7 +76,7 @@
             </select>*<br>
 
             <!-- Backlit/RGB: <input type="checkbox" name="rgb"/>*<br> -->
-            Average Price: $<input type="text" name="averagePrice" placeholder="USD" />*<br>
+            Price: $<input type="text" name="price" placeholder="USD" />*<br>
             Image URL: <input type="text" name="img" /><br>
             <input type="submit" name="" value="Send this Keyboard to the Mecha"/>
         </form>
@@ -81,6 +91,20 @@
                 customSizeField.style.display = "block";
               } else {
                 customSizeField.style.display = "none";
+              }
+            }
+            function toggleConnectionType() {
+              var connectionType = document.getElementById("connectionType");
+              var connection = document.getElementsByName("connection")[0].value;
+              if (connection == "detach") {
+                connectionType.style.display = "block";
+              } else {
+                connectionType.style.display = "none";
+              }
+              if (connection == "nonDetach") {
+                connectionType.style.display = "block";
+              } else {
+                connectionType.style.display = "none";
               }
             }
           </script>

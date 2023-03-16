@@ -6,13 +6,17 @@
     <title>Show</title>
 </head>
 <body>
-    <nav>
-        <a href="/keyboards">Back to All Keyboards</a>
-    </nav>
     <h1><%=keyboard.name %></h1>
+    
+    <nav>
+        <a class="link" href="/keyboards">Back to All Keyboards</a>
+    </nav>
+
     Keyboard Size: <%=keyboard.keyboardSize %><br>
-    Other Size: <%=keyboard.otherSize %><br>
-    Layout Name: <%=keyboard.layoutName %><br>
+    <% if (keyboard.otherSize) { %>
+        Other Size: <%= keyboard.otherSize %><br>
+      <% } %>
+    Color(s): <%=keyboard.color %><br>
     Connectivity: <%=keyboard.connectivity %><br>
     Switches: <%=keyboard.switches %><br>
     Switch Facing: <%=keyboard.switchFacing %><br>
@@ -25,11 +29,11 @@
     Plate Options: <%=keyboard.plateOptions %><br>
     <!-- Backlit/RGB: <%=keyboard.rgb %><br>
     <% if(keyboard.rgb === true){ %> checked <% } %>  -->
-    Average Price: $<%=keyboard.averagePrice %><br>
+    Price: $<%=keyboard.price %><br>
     <img src= <%= keyboard.img %> alt= <% keyboard.name %> ><br><br>
     <a href="/keyboards/<%=keyboard._id %>/edit">Edit</a> <br><br>
     <form action="/keyboards/<%= keyboard.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE" />
+        <input class="delete" type="submit" value="DELETE" />
     </form>
 </body>
 </html>

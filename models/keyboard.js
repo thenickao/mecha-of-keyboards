@@ -4,8 +4,10 @@ const keyboardSchema = new mongoose.Schema({
     name: {type: String, required: true},
     keyboardSize: {type: String, required: true},
     otherSize: {type: String, required: false},
-    layoutName: {type: String, required: false},
-    connectivity: {type: String, required: true},
+    color: {type: String, required: true},
+    connection: {type: String, required: true},
+    detach: {type: String, required: false},
+    nonDetach: {type: String, required: false},
     switches: {type: String, required: false},
     switchFacing: {type: String, required: true},
     // hotswap: {type: Boolean, required: true},
@@ -14,7 +16,7 @@ const keyboardSchema = new mongoose.Schema({
     bodyMaterials: {type: String, required: true},
     plateOptions: {type: String, required: true},
     // rgb: {type: Boolean, required: true},
-    averagePrice: {type: Number, required: true},
+    price: {type: String, required: true},
     img: {type: String, required: false},
 });
 

@@ -1,26 +1,57 @@
-img {
-    max-width: 400px;
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+
+* {
+    font-family: "Secular One", sans-serif;
 }
 
+h1 {
+    font-size: 300%;
+    -webkit-text-stroke: 1px rgb(200, 200, 200);
+    color: black;
+    text-align: center;
+  }  
+
 body {
-    background-color: black;
-    color: white;
+    background-color: rgb(50, 50, 50);
+    color: rgb(200, 200, 200);
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-gap: 20px;
+}
+  
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 a {
-    color: black;
-    background-color: white;
-    padding: 10px 20px;
+    color: rgb(50, 50, 50);
+    background-color: rgb(200, 200, 200);
+    padding: 5px 5px;
+    margin: 2px;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
 }
 
+a.link {
+    color: rgb(50, 50, 50);
+    background-color: rgb(200, 200, 200);
+    padding: 5px 10px;
+    margin: 2px auto; /* Set the left and right margin to auto */
+    border-radius: 5px;
+    text-decoration: none;
+    display: block; /* Change to a block-level element to center it */
+    cursor: pointer;
+    width: fit-content; /* Sets the width of the element to its content */
+  }
+
 a:visited {
-    color: black;
-    background-color: white;
-    padding: 10px 20px;
+    color: rgb(50, 50, 50);
+    background-color: rgb(200, 200, 200);
+    padding: 5px 5px;
+    margin: 2px;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
@@ -28,9 +59,26 @@ a:visited {
 }
 
 input {
-    color: black;
-    background-color: white;
-    padding: 10px 20px;
+    color: rgb(50, 50, 50);
+    background-color: rgb(200, 200, 200);
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+select {
+    color: rgb(50, 50, 50);
+    background-color: rgb(200, 200, 200);
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.delete {
+    color: rgb(200, 200, 200);
+    background-color: rgb(100, 0, 0);
+    padding: 5px 5px;
+    margin: 2px;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;

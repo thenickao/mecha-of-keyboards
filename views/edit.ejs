@@ -13,30 +13,37 @@
     <form action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=keyboard.name%>"/>*<br>
             
-        Keyboard Size: <select name="keyboardSize" onchange="toggleCustomSize()">
+        Keyboard Size: <select name="keyboardSize" value="<%=keyboard.keyboardSize%>" onchange="toggleCustomSize()">
             <option value="">Select a size</option>
-            <option value="60%" <% if (keyboard.keyboardSize === "60%") { %>selected<% } %>>60%</option>
-            <option value="65%" <% if (keyboard.keyboardSize === "65%") { %>selected<% } %>>65%</option>
-            <option value="75%" <% if (keyboard.keyboardSize === "75%") { %>selected<% } %>>75%</option>
-            <option value="80% | TKL | Tenkeyless" <% if (keyboard.keyboardSize === "80%") { %>selected<% } %>>80% | TKL | Tenkeyless</option>
-            <option value="00% | Full Size" <% if (keyboard.keyboardSize === "full") { %>selected<% } %>>100% | Full Size</option>
-            <option value="Other (specify below)" <% if (keyboard.keyboardSize === "custom") { %>selected<% } %>>Other (specify below)</option>
+            <option value="60%">60%</option>
+            <option value="65%">65%</option>
+            <option value="75%">75%</option>
+            <option value="80%">80% | TKL | Tenkeyless</option>
+            <option value="full">100% | Full Size</option>
+            <option value="custom">Other (specify below)</option>
         </select>*<br>
-
         <div id="customSizeField" style="display:none;">
             Other Size: <input type="text" name="otherSize" value="<%=keyboard.otherSize%>"/>
         </div>
-
-        Layout Name: <input type="text" name="layoutName" placeholder="Ex: Standard/Alice" value="<%=keyboard.layoutName%>"/><br>
         
-        Connectivity: <select name="connectivity">
+        Connection: <select name="connection" value="<%=keyboard.connection%>">
             <option value="">Select an option</option>
-            <option value="Wired(Detachable) Type-C USB" <% if (keyboard.connectivity === "Wired(Detachable) Type-C USB") { %>selected<% } %>>Wired(Detachable) Type-C USB</option>
-            <option value="Wired(Detachable) Mini USB" <% if (keyboard.connectivity === "Wired(Detachable) Mini USB") { %>selected<% } %>>Wired(Detachable) Mini USB</option>
-            <option value="Wired(Non-Detachable) Type-A USB" <% if (keyboard.connectivity === "Wired(Non-Detachable) Type-A USB") { %>selected<% } %>>Wired(Non-Detachable) Type-A USB</option>
-            <option value="Wireless (Bluetooth)" <% if (keyboard.connectivity === "Wireless (Bluetooth)") { %>selected<% } %>>Wireless (Bluetooth)</option>
-            <option value="Wireless (Dongle)" <% if (keyboard.connectivity === "Wireless (Dongle)") { %>selected<% } %>>Wireless (Dongle)</option>
+            <option value="Wired(Detachable)">Wired(Detachable)</option>
+            <option value="Wired(Non-Detachable)">Wired(Non-Detachable)</option>
+            <option value="Wireless(Bluetooth)">Wireless</option>
         </select>*<br>
+        <div id="connection" style="display:none;">
+            Connection Type(Output): <select name="detach"> value="<%=keyboard.detach%>"
+                <option value="USB C"></option>
+                <option value="USB A"></option>
+                <option value="Mini USB"></option>
+
+        </div>
+        <div id="connection" style="display:none;">
+            Connection Type: <select name="nonDetach" value="<%=keyboard.nonDetach%>">
+                <option value="USB A"></option>
+                <option value="USB C"></option>
+        </div>
 
         
         Switches: <input type="text" name="switches" value="<%=keyboard.switches%>"/><br>
@@ -67,24 +74,51 @@
         </select>*<br>
 
         <!-- Backlit/RGB: <input type="checkbox" name="rgb" value="<%=keyboard.rgb%>" onclick="getCheckboxValue(this)"/>*<br> -->
-        Average Price: $<input type="text" name="averagePrice" placeholder="USD" value="<%=keyboard.averagePrice%>"/>*<br>
+        Price: $<input type="text" name="price" placeholder="USD" value="<%=keyboard.averagePrice%>"/>*<br>
         Image URL: <input type="text" name="img" value="<%=keyboard.img%>"/><br>
     <input type="submit" value="Submit Changes" />
     </form>
     *required fields
     
 
-<script>
-    function toggleCustomSize() {
-        var customSizeField = document.getElementById("customSizeField");
-        var keyboardSize = document.getElementsByName("keyboardSize")[0].value;
-        if (keyboardSize == "custom") {
+    <script>
+        function toggleCustomSize() {
+          var customSizeField = document.getElementById("customSizeField");
+          var keyboardSize = document.getElementsByName("keyboardSize")[0].value;
+          if (keyboardSize == "custom") {
             customSizeField.style.display = "block";
-        } else {
+          } else {
             customSizeField.style.display = "none";
+          }
         }
-    }
+        var keyboardSize = '<%=keyboard.keyboardSize%>';
+        var select = document.getElementsByName('keyboardSize')[0];
+        if (keyboardSize) {
+            select.value = keyboardSize;
+            if (keyboardSize === 'custom') {
+                document.getElementById('customSizeField').style.display = 'block';
+            }
+        }
 
-    </script>
+        function toggleConnectionType() {
+          var connectionType = document.getElementById("connectionType");
+          var connection = document.getElementsByName("connection")[0].value;
+          if (connection == "detach" || connection == "nonDetach") {
+            connectionType.style.display = "block";
+          } else {
+            connectionType.style.display = "none";
+          }
+        }
+        var connection = '<%=keyboard.detach%>';
+        var select = document.getElementsByName('connection')[0];
+        if (connection) {
+            select.value = connection;
+            if (connection === 'detach') {
+                document.getElementById('detach').style.display = 'block';
+            } else {
+                document.getElementById('nonDetach').style.display = 'block';
+            }
+        }
+      </script>
 </body>
 </html>

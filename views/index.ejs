@@ -7,13 +7,20 @@
 </head>
 <body>
     <h1>The Mecha of Keyboards</h1>
+    <a class="link" href="/keyboards/new">Add a New Keyboard</a>
+
     <ul>
         <% keyboards.forEach(keyboard=> { %>
-            <a href="/keyboards/<%=keyboard._id; %>"><%=keyboard.name %> | $<%=keyboard.averagePrice %></a><br>
+            <a href="/keyboards/<%=keyboard._id; %>">
+                <% if (keyboard.keyboardSize === 'custom') {%>
+                    <%=keyboard.name %> | Size: <%=keyboard.otherSize %> | Price: $<%=keyboard.price %>
+                <% } else { %>
+                    <%=keyboard.name %> | Size: <%=keyboard.keyboardSize %> | Price: $<%=keyboard.price %>
+                <% } %>
+            </a><br>
         <% }) %>
     </ul>
-    <a href="/keyboards/new">Add a new keyboard</a>
-
     
+
 </body>
 </html>
