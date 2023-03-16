@@ -4,6 +4,20 @@
     font-family: "Secular One", sans-serif;
 }
 
+body {
+    background-color: rgb(50, 50, 50);
+    color: rgb(200, 200, 200);
+}
+  
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    place-items: center;
+}
+
 h1 {
     font-size: 300%;
     -webkit-text-stroke: 1px rgb(200, 200, 200);
@@ -11,40 +25,29 @@ h1 {
     text-align: center;
   }  
 
-body {
-    background-color: rgb(50, 50, 50);
-    color: rgb(200, 200, 200);
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    grid-gap: 20px;
-}
-  
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 400px;
 }
 
 a {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
-    padding: 5px 5px;
-    margin: 2px;
+    padding: 5px 10px;
     border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
+    display: block;
     cursor: pointer;
-}
+    width: fit-content;
+  }
 
 a.link {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
     padding: 5px 10px;
-    margin: 2px auto; /* Set the left and right margin to auto */
+    margin: 2px auto;
     border-radius: 5px;
-    text-decoration: none;
-    display: block; /* Change to a block-level element to center it */
+    display: block;
     cursor: pointer;
-    width: fit-content; /* Sets the width of the element to its content */
+    width: fit-content;
   }
 
 a:visited {
@@ -53,7 +56,6 @@ a:visited {
     padding: 5px 5px;
     margin: 2px;
     border-radius: 5px;
-    text-decoration: none;
     display: inline-block;
     cursor: pointer;
 }
@@ -62,7 +64,6 @@ input {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
     margin: 5px;
-    text-decoration: none;
     display: inline-block;
 }
 
@@ -70,7 +71,6 @@ select {
     color: rgb(50, 50, 50);
     background-color: rgb(200, 200, 200);
     margin: 5px;
-    text-decoration: none;
     display: inline-block;
 }
 
@@ -78,9 +78,10 @@ select {
     color: rgb(200, 200, 200);
     background-color: rgb(100, 0, 0);
     padding: 5px 5px;
-    margin: 2px;
+    margin: 2px auto;
     border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
