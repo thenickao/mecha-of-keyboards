@@ -9,10 +9,13 @@
     <h1>The Mecha of Keyboards</h1>
     <a class="link" href="/keyboards/new">Add a New Keyboard</a><br>
 
+    <div class="links-container1">
+    <a class="sort" href="/keyboards/name">Sort by Name (A-Z)</a>
+    <a class="sort" href="/keyboards/size">Sort by Size (Smallest-Largest)</a>
+    <a class="sort" href="/keyboards/price">Sort by Price (Lowest-Highest)</a>
+    </div><br>
+
     <div class="index">
-    <a class="sort" href="/keyboards/name">Sort by Name</a>
-    <a class="sort" href="/keyboards/size">Sort by Size</a>
-    <a class="sort" href="/keyboards/price">Sort by Price</a>
     <ul id="keyboard-list">
         <% keyboards.forEach(keyboard=> { %>
             <a class="keyboard" href="/keyboards/<%=keyboard._id; %>">
@@ -24,8 +27,7 @@
             </a><br>
         <% }) %>
     </ul>
-</div>
-
+    </div>
     
 </body>
 </html>

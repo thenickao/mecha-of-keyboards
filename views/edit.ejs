@@ -6,13 +6,15 @@
     <title>Edit</title>
 </head>
 <body>
-    <h1>Edit Keyboard</h1>
+
+    <h1>Editing the <%=keyboard.name%></h1>
 
     <nav>
-        <a class="link" href="/keyboards/<%=keyboard._id%>">Back to <%=keyboard.name%></a>
+        <a class="link cancel" href="/keyboards/<%=keyboard._id%>">cancel editing</a>
     </nav><br>
 
-    <form class="new" action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
+    <form class="edit-container" action="/keyboards/<%=keyboard._id%>?_method=PUT" method="POST">
+        <div class="editPage">
         Name: <input type="text" name="name" value="<%=keyboard.name%>"/>*<br>
             
         Keyboard Size: <select name="keyboardSize" value="<%=keyboard.keyboardSize%>" onchange="toggleCustomSize()">
@@ -28,24 +30,23 @@
             Other Size: <input type="text" name="otherSize" value="<%=keyboard.otherSize%>"/>
         </div>
         
-        Connection: <select name="connection" value="<%=keyboard.connection%>">
+        Connection: <select name="connection" value="<%=keyboard.connection%>" onchange="toggleConnectionType()">
             <option value="">Select an option</option>
             <option value="Wired(Detachable)">Wired(Detachable)</option>
             <option value="Wired(Non-Detachable)">Wired(Non-Detachable)</option>
             <option value="Wireless(Bluetooth)">Wireless</option>
         </select>*<br>
-        <div id="connection" style="display:none;">
+        <div id="detach" style="display:none;">
             Connection Type(Output): <select name="detach"> value="<%=keyboard.detach%>"
                 <option value="USB C"></option>
                 <option value="USB A"></option>
                 <option value="Mini USB"></option>
-
-        </div>
-        <div id="connection" style="display:none;">
+            </select></div>
+        <div id="nonDetach" style="display:none;">
             Connection Type: <select name="nonDetach" value="<%=keyboard.nonDetach%>">
                 <option value="USB A"></option>
                 <option value="USB C"></option>
-        </div>
+            </select></div>
 
         
         Switches: <input type="text" name="switches" value="<%=keyboard.switches%>"/><br>
@@ -56,16 +57,13 @@
             <option value="South">South</option>
         </select>*<br>
 
-        <!-- Hot-Swappable: <input type="checkbox" name="hotswap" value="<%=keyboard.hotswap%>" onclick="getCheckboxValue(this)"/>*<br> -->
+        Hot-Swappable? <input type="checkbox" name="hotswap" value="<%=keyboard.hotswap%>" onclick="getCheckboxValue(this)"/>*<br>
 
-        Stabilizer Type: <select name="stabilizerType" value="<%=keyboard.stabilizerType%>">
-            <option value="">Select a type</option>
-            <option value="Clip-In">Clip-In</option>
-            <option value="Screw-In">Screw-In</option>
-        </select>*<br>
+        Knob? <input type="checkbox" name="knob" value="<%=keyboard.knob%>" onclick="getCheckboxValue(this)"/>*<br>
+        
+        Body Color(s): <input type="text" name="color" value="<%=keyboard.color%>"/>*<br>
 
-        <!-- Knob: <input type="checkbox" name="knob" value="true" value="<%=keyboard.knob%>" onclick="getCheckboxValue(this)"/>*<br>
-        Body Materials: <input type="text" name="bodyMaterials" placeholder="Ex: Aluminum/ABS Plastic" value="<%=keyboard.bodyMaterials%>"/>*<br> -->
+        Body Material(s): <input type="text" name="bodyMaterials" placeholder="Ex: Aluminum/ABS Plastic" value="<%=keyboard.bodyMaterials%>"/>*<br>
         
         Plate Options: <select type="text" name="plateOptions" value="<%=keyboard.plateOptions%>">
             <option value="">Select an option</option>
@@ -75,14 +73,15 @@
             <option value="Stainless Steel">Stainless Steel</option>
         </select>*<br>
 
-        <!-- Backlit/RGB: <input type="checkbox" name="rgb" value="<%=keyboard.rgb%>" onclick="getCheckboxValue(this)"/>*<br> -->
+        Backlit/RGB? <input type="checkbox" name="rgb" value="<%=keyboard.rgb%>" onclick="getCheckboxValue(this)"/>*<br>
+
         Price: $<input type="text" name="price" placeholder="USD" value="<%=keyboard.averagePrice%>"/>*<br>
         Image URL: <input type="text" name="img" value="<%=keyboard.img%>"/><br>
-        * required fields<br><br>
-    <input class="submit" type="submit" value="Submit Changes" /><br>
-    
+        * required fields
+        </div><br>
+    <input class="submit" type="submit" value="Submit Changes" />
     </form>
-    
+    <img class="editImage" src= <%=keyboard.img%> alt="">
     
 
     <script>
@@ -104,25 +103,44 @@
             }
         }
 
-        function toggleConnectionType() {
-          var connectionType = document.getElementById("connectionType");
-          var connection = document.getElementsByName("connection")[0].value;
-          if (connection == "detach" || connection == "nonDetach") {
-            connectionType.style.display = "block";
-          } else {
-            connectionType.style.display = "none";
-          }
+        // function toggleConnectionType() {
+        //   var connectionType = document.getElementById("connectionType");
+        //   var connection = document.getElementsByName("connection")[0].value;
+        //   if (connection == "detach" || connection == "nonDetach") {
+        //     connectionType.style.display = "block";
+        //   } else {
+        //     connectionType.style.display = "none";
+        //   }
+        // }
+        // var connection = '<%=keyboard.detach%>';
+        // var select = document.getElementsByName('connection')[0];
+        // if (connection) {
+        //     select.value = connection;
+        //     if (connection === 'detach') {
+        //         document.getElementById('detach').style.display = 'block';
+        //     } else {
+        //         document.getElementById('nonDetach').style.display = 'block';
+        //     }
+        // }
+
+        var connectionDropdown = document.querySelector('select[name="connection"]');
+        var detachDropdown = document.querySelector('select[name="detach"]');
+        var nonDetachDropdown = document.querySelector('select[name="nonDetach"]');
+
+        connectionDropdown.addEventListener('change', function() {
+        var selectedValue = connectionDropdown.value;
+        if (selectedValue === 'Wired(Detachable)') {
+            detachDropdown.style.display = 'block';
+            nonDetachDropdown.style.display = 'none';
+        } else if (selectedValue === 'Wired(Non-Detachable)') {
+            detachDropdown.style.display = 'none';
+            nonDetachDropdown.style.display = 'block';
+        } else {
+            detachDropdown.style.display = 'none';
+            nonDetachDropdown.style.display = 'none';
         }
-        var connection = '<%=keyboard.detach%>';
-        var select = document.getElementsByName('connection')[0];
-        if (connection) {
-            select.value = connection;
-            if (connection === 'detach') {
-                document.getElementById('detach').style.display = 'block';
-            } else {
-                document.getElementById('nonDetach').style.display = 'block';
-            }
-        }
+        });
+
       </script>
 </body>
 </html>

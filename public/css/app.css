@@ -4,25 +4,73 @@
     font-family: "Secular One", sans-serif;
 }
 
+img.bckgrnd {
+    opacity: 50%;
+    
+}
+
 body {
     background-color: rgb(50, 50, 50);
     color: rgb(200, 200, 200);
+    background-image: url(https://d1231c29xbpffx.cloudfront.net/store/product/177774/image/aa8684e73d753a839c406d0224e3b0f8.png?Expires=1677879019&Signature=F6HWzEkGYH576uTTi5BnQxu3WYKm89K6Csryxkzmg9C2GQqTFQo7MzdpFO3YOO9BI1epZb09Pzfxw5etVJaOrW6rCDHSwM8gyDFRr~1x~lvL9PXec5a7y0BU5Pbe5k-Wjc3c4~pTTLbN5LYvLdo9UAw81LnnVfBkbt7SOcsg2q2O51FyvcyZJwGohSVWptw7kUzkEwgCJLjkUycdZ5lRTk-Ei51A0CcGqs2nhq8xKxKfLTvfJySSfoxIp71QA5PgtOcGzabAtBPJooikq9racuL2PWjM9WAp8ZfUWD~nrgUfkOwTt841lJA9kQtBLtBEvNi903xFmpz7QKZKV1OmBA__&Key-Pair-Id=APKAIN6COYBF3ZQW7OQQ);
+	background-size: cover;
+	background-position:center;
+	/* background-repeat: no-repeat; */
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(150, 150, 150, 0.8);
+    z-index: -1;
 }
   
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     place-items: center;
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 25px;
+    font-size: 150%;
+    -webkit-text-stroke: 1px rgb(50, 50, 50);
+
 }
+
+div.editPage {
+    background-color: rgba(50, 50, 50, 0.5);
+    font-size: 125%;
+    padding: 25px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+form.edit-container {
+    
+  }
+  
+img.editImage {
+    width: 20%;
+    float: right;
+    position: absolute;
+    right: 30%;
+    top: 40%
+  }
 
 h1 {
     font-size: 300%;
     -webkit-text-stroke: 1px rgb(200, 200, 200);
     color: black;
     text-align: center;
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 10px;
   }  
 
 img {
@@ -50,15 +98,30 @@ a.link {
     width: fit-content;
   }
 
-/* a:visited {
-    color: rgb(50, 50, 50);
-    background-color: rgb(200, 200, 200);
+
+.sort {
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 0, 0);
     padding: 5px 5px;
     margin: 2px;
     border-radius: 5px;
-    display: inline-block;
     cursor: pointer;
-} */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort:visited {
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 0, 0);
+    padding: 5px 5px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 input {
     color: rgb(50, 50, 50);
@@ -75,6 +138,18 @@ select {
 }
 
 .delete {
+    color: rgb(200, 200, 200);
+    background-color: rgb(100, 0, 0);
+    padding: 5px 5px;
+    margin: 2px auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+a.cancel {
     color: rgb(200, 200, 200);
     background-color: rgb(100, 0, 0);
     padding: 5px 5px;
@@ -104,15 +179,37 @@ select {
 
 .new {
     margin: 0% 25% 25% 25%;
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 25px;
+    position: absolute;
+    max-width: 1000px;
 }
 
-.sort {
+.links-container1 {
     color: rgb(200, 200, 200);
     background-color: rgb(0, 0, 0);
     padding: 5px 10px;
     margin: 2px auto;
     border-radius: 5px;
-    display: flex;
     cursor: pointer;
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
+}
+
+.links-container2 {
+    color: rgb(200, 200, 200);
+    background-color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    margin: 2px auto;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+}
+
+ul {
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 25px;
 }

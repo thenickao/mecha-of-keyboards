@@ -6,11 +6,13 @@
     <title>New</title>
 </head>
 <body>
-    
-    <h1>New Keyboard Page</h1>
+
+  <h1>New Keyboard Page</h1>
+
     <nav>
       <a class="link" href="/keyboards">Back to All Keyboards</a>
     </nav><br>
+
         <form class="new" action="/keyboards" method="POST">
             Name: <input type="text" name="name" />*<br>
             
@@ -26,8 +28,6 @@
             <div id="customSizeField" style="display:none;">
                 Other Size: <input type="text" name="otherSize" />
             </div>
-    
-            Layout Name: <input type="text" name="layoutName" placeholder="Ex: Standard/Alice" /><br>
             
             Connection: <select name="connection">
                 <option value="">Select an option</option>
@@ -56,16 +56,13 @@
                 <option value="South">South</option>
             </select>*<br>
 
-            <!-- Hot-Swappable: <input type="checkbox" name="hotswap" />*<br> -->
-            
-            Stabilizer Type: <select name="stabilizerType">
-                <option value="">Select a type</option>
-                <option value="Clip-In">Clip-In</option>
-                <option value="Screw-In">Screw-In</option>
-            </select>*<br>
+            Hot-Swappable? <input type="checkbox" name="hotswap" />*<br>
 
-            <!-- Knob: <input type="checkbox" name="knob"/>*<br> -->
-            Body Materials: <input type="text" name="bodyMaterials" placeholder="Ex: Aluminum/ABS Plastic" />*<br>
+            Knob? <input type="checkbox" name="knob"/>*<br>
+
+            Body Color(s): <input type="text" name="color" >*<br>
+
+            Body Material(s): <input type="text" name="bodyMaterials" placeholder="Ex: Aluminum/ABS Plastic" />*<br>
             
             Plate Options: <select type="text" name="plateOptions">
                 <option value="">Select an option</option>
@@ -75,7 +72,8 @@
                 <option value="Stainless Steel">Stainless Steel</option>
             </select>*<br>
 
-            <!-- Backlit/RGB: <input type="checkbox" name="rgb"/>*<br> -->
+            Backlit/RGB? <input type="checkbox" name="rgb"/>*<br>
+
             Price: $<input type="text" name="price" placeholder="USD" />*<br>
             Image URL: <input type="text" name="img" /><br>
             * required fields<br><br>
