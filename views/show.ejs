@@ -29,12 +29,15 @@
         <% } %>
         <label>Switches</label>: <%=keyboard.switches %><br>
         <label>Switch Facing</label>: <%=keyboard.switchFacing %><br>
-        <label>Hot-Swappable?</label> <input type="checkbox" <%= keyboard.hotswap === "on" ? "checked" : "" %> disabled><br>
-        <label>Knob?</label> <input type="checkbox" <%= keyboard.knob === "on" ? "checked" : "" %> disabled><br>
+        <!-- <label>Hot-Swappable?</label> <input type="checkbox" <%= keyboard.hotswap === "on" ? "checked" : "" %> disabled><br> -->
+        <label>Hot-Swappable?</label> <%= keyboard.hotswap %><br>
+        <!-- <label>Knob?</label> <input type="checkbox" <%= keyboard.knob === "on" ? "checked" : "" %> disabled><br> -->
+        <label>Knob?</label> <%= keyboard.knob %><br>
         <label>Body Color(s)</label>: <%=keyboard.color %><br>
         <label>Body Material(s)</label>: <%=keyboard.bodyMaterials %><br>
         <label>Plate Options</label>: <%=keyboard.plateOptions %><br>
-        <label>Backlit/RGB?</label> <input type="checkbox" <%= keyboard.rgb === "on" ? "checked" : "" %> disabled><br>
+        <!-- <label>Backlit/RGB?</label> <input type="checkbox" <%= keyboard.rgb === "on" ? "checked" : "" %> disabled><br> -->
+        <label>Backlit/RGB?</label> <%= keyboard.rgb %><br>
         <label>Price</label>: $<%=keyboard.price %><br>
         <img class="showImg" src= <%= keyboard.img %> alt= <% keyboard.name %> >
       </div></div><br>

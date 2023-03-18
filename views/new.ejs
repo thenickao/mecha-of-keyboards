@@ -28,24 +28,25 @@
                 Other Size: <input type="text" name="otherSize" />
             </div>
             
-            Connectivity: <select name="connectivity">
+            Connectivity: <select name="connectivity" onchange="toggleConnectionType()">
                 <option value="">Select an option</option>
                 <option value="Wired(Detachable)">Wired(Detachable)</option>
                 <option value="Wired(Non-Detachable)">Wired(Non-Detachable)</option>
-                <option value="Wireless(Bluetooth)">Wireless</option>
+                <option value="Wireless">Wireless</option>
             </select>*<br>
-            <div id="connection" style="display:none;">
+            <div id="detachField" style="display:none;">
                 Connection Type(Output): <select name="detach">
-                    <option value="USB C"></option>
-                    <option value="USB A"></option>
-                    <option value="Mini USB"></option>
-
-            </div>
-            <div id="connection" style="display:none;">
-                Connection Type: <select name="nonDetach">
-                    <option value="USB A"></option>
-                    <option value="USB C"></option>
-            </div>
+                    <option value="">Select an option</option>
+                    <option value="USB C">USB C</option>
+                    <option value="USB A">USB A</option>
+                    <option value="Mini USB">Mini USB</option>
+                  </select></div>
+            <div id="nonDetachField" style="display:none;">
+                Connection Type(Input): <select name="nonDetach">
+                  <option value="">Select an option</option>  
+                  <option value="USB A">USB A</option>
+                  <option value="USB C">USB C</option>
+                </select></div>
           
             Switches: <input type="text" name="switches" /><br>
             
@@ -55,9 +56,19 @@
                 <option value="South">South</option>
             </select>*<br>
 
-            Hot-Swappable? <input type="checkbox" name="hotswap" />*<br>
+            <!-- Hot-Swappable? <input type="checkbox" name="hotswap" />*<br> -->
+            Hot-Swappable? <select name="hotswap">
+                <option value="">Yes or No?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>*<br>
 
-            Knob? <input type="checkbox" name="knob" />*<br>
+            <!-- Knob? <input type="checkbox" name="knob" />*<br> -->
+            Knob? <select name="knob">
+              <option value="">Yes or No?</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>*<br>
 
             Body Color(s): <input type="text" name="color" >*<br>
 
@@ -71,7 +82,12 @@
                 <option value="Stainless Steel">Stainless Steel</option>
             </select><br>
 
-            Backlit/RGB? <input type="checkbox" name="hotswap" />*<br>
+            <!-- Backlit/RGB? <input type="checkbox" name="hotswap" />*<br> -->
+            Backlit/RGB? <select name="hotswap">
+              <option value="">Yes or No?</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>*<br>
 
             Price: $<input type="text" name="price" placeholder="USD" />*<br>
             Image URL: <input type="text" name="img" /><br>
@@ -85,26 +101,29 @@
             function toggleCustomSize() {
               var customSizeField = document.getElementById("customSizeField");
               var keyboardSize = document.getElementsByName("keyboardSize")[0].value;
-              if (keyboardSize == "custom") {
+              if (keyboardSize == "Other") {
                 customSizeField.style.display = "block";
               } else {
                 customSizeField.style.display = "none";
               }
             }
+            
             function toggleConnectionType() {
-              var connectionType = document.getElementById("connectionType");
-              var connection = document.getElementsByName("connection")[0].value;
-              if (connection == "detach") {
-                connectionType.style.display = "block";
+              var detachField = document.getElementById("detachField");
+              var nonDetachField = document.getElementById("nonDetachField");
+              var connectivity = document.getElementsByName("connectivity")[0].value;
+
+              if (connectivity == "Wired(Detachable)") {
+                detachField.style.display = "block";
+                nonDetachField.style.display = "none";
+              } else if (connectivity == "Wired(Non-Detachable)") {
+                detachField.style.display = "none";
+                nonDetachField.style.display = "block";
               } else {
-                connectionType.style.display = "none";
-              }
-              if (connection == "nonDetach") {
-                connectionType.style.display = "block";
-              } else {
-                connectionType.style.display = "none";
+                detachField.style.display = "none";
+                nonDetachField.style.display = "none";
               }
             }
-          </script>
+        </script>
 </body>
 </html>

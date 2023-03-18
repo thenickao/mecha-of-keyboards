@@ -26,7 +26,11 @@ body {
     margin: 0;
     padding: 0;
 } */
-  
+
+.priceSort {
+    font-weight: bold;
+}
+
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
