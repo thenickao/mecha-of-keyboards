@@ -13,28 +13,35 @@
         <a class="link" href="/keyboards">Back to All Keyboards (Unsorted)</a>
     </nav><br><br>
 
+    <div class="wrapper">
     <div class="grid-container">
-    Keyboard Size: <%=keyboard.keyboardSize %><br>
-    <% if (keyboard.otherSize) { %>
-        Other Size: <%= keyboard.otherSize %><br>
-      <% } %>
-    Connectivity: <%=keyboard.connectivity %><br>
-    Switches: <%=keyboard.switches %><br>
-    Switch Facing: <%=keyboard.switchFacing %><br>
-    Hot-Swappable? <%=keyboard.hotswap %><br>
-    <% if(keyboard.hotswap === "on"){ %> checked <% } %> 
-    Knob? <%=keyboard.knob %><br>
-    <% if(keyboard.knob === "on"){ %> checked <% } %> 
-    Body Color(s): <%=keyboard.color %><br>
-    Body Material(s): <%=keyboard.bodyMaterials %><br>
-    Plate Options: <%=keyboard.plateOptions %><br>
-    Backlit/RGB? <%=keyboard.rgb %><br>
-    <% if(keyboard.rgb === "on"){ %> checked <% } %> 
-    Price: $<%=keyboard.price %><br>
-    <img src= <%= keyboard.img %> alt= <% keyboard.name %> >
-    </div><br>
+        <label>Keyboard Size</label>: <%=keyboard.keyboardSize %><br>
+        <% if (keyboard.otherSize) { %>
+            <label>Other Size</label>: <%= keyboard.otherSize %><br>
+        <% } %>
 
-    <a class="link" href="/keyboards/<%=keyboard._id %>/edit">Edit</a><br>
+        <label>Connectivity</label>: <%=keyboard.connectivity %><br>
+        <% if (keyboard.detach) { %>
+            <label>Connection Type(Output)</label>: <%= keyboard.detach %><br>
+        <% } %>
+        <% if (keyboard.nonDetach) { %>
+            <label>Connection Type</label>: <%= keyboard.nonDetach %><br>
+        <% } %>
+        <label>Switches</label>: <%=keyboard.switches %><br>
+        <label>Switch Facing</label>: <%=keyboard.switchFacing %><br>
+        <label>Hot-Swappable?</label> <input type="checkbox" <%= keyboard.hotswap === "on" ? "checked" : "" %> disabled><br>
+        <label>Knob?</label> <input type="checkbox" <%= keyboard.knob === "on" ? "checked" : "" %> disabled><br>
+        <label>Body Color(s)</label>: <%=keyboard.color %><br>
+        <label>Body Material(s)</label>: <%=keyboard.bodyMaterials %><br>
+        <label>Plate Options</label>: <%=keyboard.plateOptions %><br>
+        <label>Backlit/RGB?</label> <input type="checkbox" <%= keyboard.rgb === "on" ? "checked" : "" %> disabled><br>
+        <label>Price</label>: $<%=keyboard.price %><br>
+        <img class="showImg" src= <%= keyboard.img %> alt= <% keyboard.name %> >
+      </div></div><br>
+      
+
+
+    <a class="link" href="/keyboards/<%=keyboard._id %>/edit">EDIT</a><br>
     <form action="/keyboards/<%= keyboard.id %>?_method=DELETE" method="POST">
         <input class="delete" type="submit" value="DELETE" />
     </form>

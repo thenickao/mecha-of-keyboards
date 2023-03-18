@@ -11,19 +11,20 @@
     <a class="link" href="/keyboards/new">Add a New Keyboard</a><br>
 
     <div class="links-container2">
-    <a class="sort" href="/keyboards/name">Sort by Name (A-Z)</a>
-    <a class="sort" href="/keyboards/size">Sort by Size (Smallest-Largest)</a>
-    </div>
+        <a class="sort" href="/keyboards">Back to All Keyboards (Unsorted)</a>
+        <a class="sort" href="/keyboards/name">Sort by Name (A-Z)</a>
+    <!-- <a class="sort" href="/keyboards/size">Sort by Size (Smallest-Largest)</a> -->
+    </div><br>
 
     <div class="index">
     
-    <ul id="keyboard-list">
+    <ul id="keyboard-list"><br>
         <% keyboards.sort((a, b) => a.price - b.price).forEach(keyboard => { %>
             <a class="keyboard" href="/keyboards/<%=keyboard._id; %>">
-                <% if (keyboard.keyboardSize === 'custom') {%>
-                    <%=keyboard.name %> | Size: <%=keyboard.otherSize %> | Price: $<%=keyboard.price %>
+                <% if (keyboard.keyboardSize === 'Other') {%>
+                    <%=keyboard.name %> || Size: <%=keyboard.otherSize %> || Price: $<%=keyboard.price %>
                 <% } else { %>
-                    <%=keyboard.name %> | Size: <%=keyboard.keyboardSize %> | Price: $<%=keyboard.price %>
+                    <%=keyboard.name %> || Size: <%=keyboard.keyboardSize %> || Price: $<%=keyboard.price %>
                 <% } %>
             </a><br>
         <% }) %>
