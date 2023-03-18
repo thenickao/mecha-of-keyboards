@@ -48,6 +48,7 @@ Font: https://fonts.googleapis.com/css2?family=Secular+One&display=swap
 _
 
 Forthcoming Features:
+- Information Page
 - Including links to pages within the "things to consider" page so users can see what is being referenced
 - Include embedded videos for typing tests so users can hear what certain parts may sound like
 - Require an authorized admin/user to approve of edits (will show new information added/changes as pending)

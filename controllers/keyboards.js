@@ -15,6 +15,18 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/info", (req, res) => {
+    Keyboard.find({}, (error, allKeyboards) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render("info.ejs", {
+                keyboards: allKeyboards,
+            });
+        }
+    });
+});
+
 router.get("/name", (req, res) => {
     Keyboard.find({}, (error, allKeyboards) => {
         if (error) {
