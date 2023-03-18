@@ -17,7 +17,8 @@ User Story:
 
 _
 
-![Matching Moodiez Wire Frame](matching-moodiez-wire-frame.jpeg)
+
+![IMG_6745](https://user-images.githubusercontent.com/115501715/226098205-d3286e46-8727-4128-b412-e393e9cdd653.jpg)
 
 _
 
